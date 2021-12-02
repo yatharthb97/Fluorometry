@@ -1,15 +1,17 @@
 #pragma once
 
-#include "pins.hpp"
+#include "./../pins.hpp"
 
 
-void Stepper::move(int n, unsigned int step_hperiod=5, disable_power=false);
-void Stepper::forward(int n, unsigned int step_hperiod=5, disable_power=false);
-void Stepper::reverse(int n, unsigned int step_hperiod=5, disable_power=false);
+//void Stepper::move(int n, unsigned int step_hperiod=5, bool disable_power=false);
+//void Stepper::forward(int n, unsigned int step_hperiod=5, bool disable_power=false);
+//void Stepper::reverse(int n, unsigned int step_hperiod=5, bool disable_power=false);
 
 
 namespace Stepper
 {
+    static unsigned int total_steps = STEPPER_STEPS;
+
     /** @brief Initalization function for module. */
     void init()
     {
@@ -20,7 +22,7 @@ namespace Stepper
     }
 
     /** @brief Generic function that moves n-steps without setting the direction pin. */
-    void move(int n, unsigned int step_hperiod=5, disable_power=false)
+    void move(int n, unsigned int step_hperiod=15, bool disable_power=false)
     {
         digitalWrite(EN_PIN, LOW);
         delay(2);
@@ -28,9 +30,9 @@ namespace Stepper
         for(unsigned int i = 0; i < n; i++)
         {
             digitalWrite(PULSE_PIN, HIGH);
-            delay(step_period);
+            delay(step_hperiod);
             digitalWrite(PULSE_PIN, LOW);
-            delay(step_period);
+            delay(step_hperiod);
         }
 
         if(disable_power)
@@ -38,7 +40,7 @@ namespace Stepper
     }
 
     /** @brief Function to move the motor **forward** by `n` steps. */
-    void forward(int n, unsigned int step_hperiod=5, disable_power=false)
+    void forward(int n, unsigned int step_hperiod=15, bool disable_power=false)
     {
 
         digitalWrite(DIR_PIN, HIGH);
@@ -47,7 +49,7 @@ namespace Stepper
     }
 
     /** @brief Function to move the motor **reverse** by `n` steps. */
-    void reverse(int n, unsigned int step_hperiod=5, disable_power=false)
+    void reverse(int n, unsigned int step_hperiod=15, bool disable_power=false)
     {
 
         digitalWrite(DIR_PIN, LOW);

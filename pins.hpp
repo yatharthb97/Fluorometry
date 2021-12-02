@@ -1,6 +1,12 @@
 #pragma once
 
-/** @brief This file contains pin definations. (default MCU → Arduino Mega 2560) */
+/** @brief This file contains pin definations. (default MCU → Arduino Mega 2560)
+ * It also contains some other configuration settings. */
+
+
+#define STEPPER_STEPS 200 
+#define IR_SENSOR_THRESHOLD 50
+
 
 //Stepper Pins
 const int EN_PIN = 5;
@@ -20,7 +26,7 @@ const int LIGHT_CNTRL_PIN = 12;
 
 
 //PMT Control Pins
-const int DAC_CS_PIN = 53;
+const int PMT_CS_PIN = 53;
 const int PMT_READ_PIN = A0;
 
 
