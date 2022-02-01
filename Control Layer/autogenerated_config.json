@@ -1,0 +1,10 @@
+{
+    "Port": "COM7",
+    "Baud": 9600,
+    "Sampling Delay ms": 100,
+    "Save Directory": "./exclude/",
+    "Header Lines": 7,
+    "Data Seperator": "\t",
+    "Print Data": false,
+    "Export Config to MetaData": false
+}
