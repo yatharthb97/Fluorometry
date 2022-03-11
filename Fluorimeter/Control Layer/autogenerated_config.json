@@ -1,7 +1,0 @@
-{
-    "Port": "COM7",
-    "Baud": 9600,
-    "Composite Plot": false,
-    "Sampling Delay ms": 200,
-    "Save Directory": "."
-}
